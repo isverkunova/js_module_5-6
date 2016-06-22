@@ -19,6 +19,18 @@
 		startBtn.innerText = 'Start';
 	};
 
+	var checkForDoubleZero = function(num){
+		num = Math.floor(num);
+
+		if(num < 10){
+			num = '00' + num;
+		} else if (num < 100){
+			num = '0' + num;
+		}
+
+		return num;
+	};
+
 	var checkForZero = function(num){
 		num = Math.floor(num);
 
@@ -32,7 +44,7 @@
 	var displayUpdate = function(){
 		if(isTimerRunning){	
 			milliseconds = milliseconds + 10;
-			millisecondsUI = checkForZero(milliseconds % 1000);
+			millisecondsUI = checkForDoubleZero(milliseconds % 1000);
 			seconds = checkForZero(milliseconds / 1000);
 			minutes = checkForZero(seconds / 60);
 			hours = checkForZero(minutes / 60);
